@@ -1,0 +1,11 @@
+" 这个文件是一些插件的开关
+
+" Options {
+"
+" Disable omni complete
+" let g:zhaojingzhen_no_omni_complete=1
+
+
+
+
+" }
