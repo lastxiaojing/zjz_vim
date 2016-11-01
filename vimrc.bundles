@@ -48,7 +48,7 @@
             Bundle 'mileszs/ack.vim'
         endif
     " }
-    "
+     
     if !exists("g:spf13_bundle_groups")
         let g:spf13_bundle_groups=['general', 'writing', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
     endif
@@ -81,7 +81,7 @@
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
             Bundle 'mbbill/undotree'
-            Bundle 'nathanaelkane/vim-indent-guides'
+            " Bundle 'nathanaelkane/vim-indent-guides'                  " 缩进前边会突出显示，觉得没必要
             if !exists('g:spf13_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
             endif
