@@ -246,6 +246,13 @@
     " Use <F10> to typesetting
     noremap     <F10>   <ESC>gg=G<ESC>
 
+    " Use f insteam of <C-d> Use F instead of <C-u>
+    noremap     f       <C-d>
+    noremap     F       <C-u>
+
+    " Use ; instead of :
+    noremap     ;       ;
+
 " }
 
 " Plugins {
