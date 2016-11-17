@@ -233,6 +233,7 @@
     " F8 to save current buffer
     noremap     <F8>    <Esc>:w!<cr>
     inoremap    <F8>    <Esc>:w!<cr>
+    noremap     `       <Esc>:w!<cr>
 
     " <F5> fold all <F6> open all <F7> open or fold current
     noremap     <F5>    zR
