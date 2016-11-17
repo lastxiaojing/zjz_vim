@@ -214,21 +214,30 @@
 
     " You can exit the vim force!
     nmap    q       <Esc>:q!<cr>
+    " You can force save current buffer!
+    noremap     <F3>        <Esc>:w!<cr><Esc>
+    inoremap    <F3>        <Esc>:w!<cr><Esc>
+    noremap     <leader>w   <Esc>:w!<cr><Esc>
+    inoremap    <leader>w   <Esc>:w!<cr><Esc> 
 
     " In the normal model, you can use tab to switch the window
     nmap    <tab>   <C-w><C-w>
 
     " Close all the window except the current one
-    noremap     <F1>    :on<cr>
+    noremap     <F3>    :on<cr>
 
     " Because use <C-v> in ikbc is not convenient, so I change it to <f2>. Of
     " couse You can use <C-v> continue.
     nmap        <F2>    <ESC><C-v>
 
-    " <F5> fold all <F6> open all <F8> open or fold current
+    " F8 to save current buffer
+    noremap     <F8>    <Esc>:w!<cr>
+    inoremap    <F8>    <Esc>:w!<cr>
+
+    " <F5> fold all <F6> open all <F7> open or fold current
     noremap     <F5>    zR
     noremap     <F6>    zM
-    noremap     <F8>    za
+    noremap     <F7>    za
     
     " The program doc
     map <F9> O/*<CR>@brief: <CR>@date:[<Esc>:read !date<CR>kJ$a]<CR>@author:zjz<CR>@param: <CR>@return: <CR><tab>*/<ESC><s-i><backspace><ESC> 
