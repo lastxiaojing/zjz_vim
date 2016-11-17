@@ -251,7 +251,7 @@
     noremap     F       <C-u>
 
     " Use ; instead of :
-    noremap     ;       ;
+    noremap     ;       :
 
 " }
 
