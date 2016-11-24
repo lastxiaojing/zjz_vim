@@ -118,6 +118,7 @@
             Bundle 'luochen1990/rainbow'
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
+                Bundle 'vim-scripts/taglist.vim'
             endif
         endif
     " }
