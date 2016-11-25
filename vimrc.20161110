@@ -246,7 +246,7 @@
     " Use <F10> to typesetting
     noremap     <F10>   <ESC>gg=G<ESC>
 
-    " This configuration can support in few type files. I use F12 to support syntax.
+    " This configuration can support in few type files. I use F12 to support  syntax.
     noremap     <F12>   <ESC>:set syntax=on<cr>
 
     " Use f insteam of <C-d> Use F instead of <C-u>
@@ -255,6 +255,9 @@
 
     " Use ; instead of :
     noremap     ;       :
+
+    " Jump to last insert position, I use ' to instead of '^
+    noremap     '   '^
 
 " }
 
