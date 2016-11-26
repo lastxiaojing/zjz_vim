@@ -25,9 +25,10 @@
 	" }
 
     " Windows Encoding Setting {
-    " On Windows, it appears messy code in the command line.
-    " I hope this can resolve it.
-        language messages zh_CN.utf-8
+        " On Windows, it appears messy code in the command line. I hope this can resolve it.
+            language messages zh_CN.utf-8
+        " Solve the messy code on Windows terminal.  cp936 is the chinese show coding on Windows terminal; 
+            set termencoding=cp936
     " }
 
 	" Arrows Key Fix {
@@ -81,7 +82,16 @@
         set undolevels=1000
         set undoreload=10000
     endif
+
+    " MaxGuiWindows When starts
+    if has("win32") || has("win64")
+        au GUIEnter * simalt ~x
+    endif
+
     " }
+
+    "typeface setting
+    set guifont=courier_new:h12
 " }
 
 
@@ -128,6 +138,7 @@
     set backspace=indent,eol,start
     set linespace=0
     set number
+    set go=
     set showmatch
     set incsearch
     set hlsearch
@@ -141,7 +152,7 @@
     set scrolloff=3
     set foldenable
     set nolist                                          " 取消list，如果需要，在内部自己加
-    " set listchars=tab:·\ ,trail:·,extends:#,nbsp:·
+    " set listchars=tab::\ ,trail::,extends:#,nbsp::
 " }
 
 " Formatting {
