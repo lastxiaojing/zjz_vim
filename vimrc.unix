@@ -1,14 +1,14 @@
 " Environment {
 	" Identify  platform {
-	silent function! OSX()
-		return  has('macunix')
-	endfunction
-	silent function! LINUX()
-		return has('unix') && !has('maxunix') && !has('win32unix')
-	endfunction
-	silent function! WINDOWS()
-		return (has('win32') || has('win64'))
-	endfunction
+	    silent function! OSX()
+	    	return  has('macunix')
+	    endfunction
+	    silent function! LINUX()
+	    	return has('unix') && !has('maxunix') && !has('win32unix')
+	    endfunction
+	    silent function! WINDOWS()
+	    	return (has('win32') || has('win64'))
+	    endfunction
 	" }
 	" BASIC {
 		set nocompatible
@@ -69,12 +69,12 @@
     set clipboard+=unnamed
 
     " Setting up the directories {
-    set backup
-    if has('persistent_undo')
-        set undofile
-        set undolevels=1000
-        set undoreload=10000
-    endif
+        set backup
+        if has('persistent_undo')
+            set undofile
+            set undolevels=1000
+            set undoreload=10000
+        endif
     " }
 " }
 
@@ -142,7 +142,7 @@
 " }
 
 " Formatting {
-    set nowrap
+    set wrap
     set autoindent
     set shiftwidth=4
     set expandtab
@@ -198,59 +198,42 @@
     noremap <leader>f8 :set foldlevel=8<CR>
     noremap <leader>f9 :set foldlevel=9<CR>
 
+    " key mappings of F2-F12 {
+        " Because use <C-v> in ikbc is not convenient, so I change it to <f2>. Of course You can use <C-v> continue.
+        nmap        <F2>    <ESC><C-v>
+        " <F5> fold all <F6> open all <F7> open or fold current
+        noremap     <F5>    zR
+        noremap     <F6>    zM
+        " <F7> switch the buffer. 
+        noremap     <F7>    :vi #<cr>
+        " <F8> open the bufexplore, we can switch buffer easily
+        noremap     <F8>    :BufExplorer<cr> 
+        " The program doc
+        map <F9> O/*<CR>@brief: <CR>@date:[<Esc>:read !date<CR>kJ$a]<CR>@author:zjz<CR>@param: <CR>@return: <CR><tab>*/<ESC><s-i><backspace><ESC> 
+        " Use <F10> to typesetting
+        noremap     <F10>   <ESC>gg=G<ESC>
+        " This configuration can support in few type files. I use F12 to support  syntax.
+        noremap     <F12>   <ESC>:set syntax=on<cr>
+    " }
+
     " Clear blank space at end of line
     noremap cl	:%s/\s\+$//<cr>
 
-    " quick move to the start and end of one line
-    " ikbc keyboard <Ctrl> is not convenient, so use A and E
-    noremap     <C-a>       ^
-    noremap     <C-e>       $
+    " quick move to the start and end of one line ikbc keyboard <Ctrl> is not convenient, so use A and E
     noremap     A       ^
     noremap     E       $
-
-    " bufexplore  You can quickly switch buffer file
-    " noremap <leader>bb      :BufExplorer<cr>
-    noremap <leader>bb      <Esc>:vi #<cr>
 
     " You can paste the system cliboard
     nmap    p       <s-p>
 
     " You can exit the vim force!
     nmap    q       <Esc>:q!<cr>
-    " You can force save current buffer!
-    noremap     <F3>        <Esc>:w!<cr><Esc>
-    inoremap    <F3>        <Esc>:w!<cr><Esc>
-    noremap     <leader>w   <Esc>:w!<cr><Esc>
-    inoremap    <leader>w   <Esc>:w!<cr><Esc> 
 
     " In the normal model, you can use tab to switch the window
     nmap    <tab>   <C-w><C-w>
 
-    " Close all the window except the current one
-    noremap     <F3>    :on<cr>
-
-    " Because use <C-v> in ikbc is not convenient, so I change it to <f2>. Of
-    " couse You can use <C-v> continue.
-    nmap        <F2>    <ESC><C-v>
-
-    " F8 to save current buffer
-    noremap     <F8>    <Esc>:w!<cr>
-    inoremap    <F8>    <Esc>:w!<cr>
+    " ` to save current buffer
     noremap     `       <Esc>:w!<cr>
-
-    " <F5> fold all <F6> open all <F7> open or fold current
-    noremap     <F5>    zR
-    noremap     <F6>    zM
-    noremap     <F7>    za
-    
-    " The program doc
-    map <F9> O/*<CR>@brief: <CR>@date:[<Esc>:read !date<CR>kJ$a]<CR>@author:zjz<CR>@param: <CR>@return: <CR><tab>*/<ESC><s-i><backspace><ESC> 
-
-    " Use <F10> to typesetting
-    noremap     <F10>   <ESC>gg=G<ESC>
-
-    " This configuration can support in few type files. I use F12 to support  syntax.
-    noremap     <F12>   <ESC>:set syntax=on<cr>
 
     " Use f insteam of <C-d> Use F instead of <C-u>
     noremap     f       <C-d>
@@ -262,14 +245,7 @@
     " Jump to last insert position, I use ' to instead of '^
     noremap     '   '^
 
-    " When we log in servier terminal through ssh, it's difficult to copy and  paste.
-    if (OSX() || LINUX())
-        vnoremap "+y    :w !pbcopy<cr>
-        noremap "+p     :r !pbpaste<cr>
-        vnoremap y  "+y
-        noremap p   "+p
-    endif
-
+    "
 " }
 
 " Plugins {
