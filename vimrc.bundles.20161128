@@ -76,12 +76,12 @@
                 Bundle 'vim-airline/vim-airline-themes'
             endif
             Bundle 'powerline/fonts'
-            Bundle 'bling/vim-bufferline'
+            " Bundle 'bling/vim-bufferline'
             Bundle 'easymotion/vim-easymotion'
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
             Bundle 'mbbill/undotree'
-            Bundle 'nathanaelkane/vim-indent-guides'
+            " Bundle 'nathanaelkane/vim-indent-guides'
             if !exists('g:zjz_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
             endif
