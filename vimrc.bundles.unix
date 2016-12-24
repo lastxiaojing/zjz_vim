@@ -76,12 +76,11 @@
                 Bundle 'vim-airline/vim-airline-themes'
             endif
             Bundle 'powerline/fonts'
-            " Bundle 'bling/vim-bufferline'
             Bundle 'easymotion/vim-easymotion'
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
             Bundle 'mbbill/undotree'
-            " Bundle 'nathanaelkane/vim-indent-guides'
+            Bundle 'nathanaelkane/vim-indent-guides'
             if !exists('g:zjz_no_views')
                 Bundle 'vim-scripts/restore_view.vim'
             endif
@@ -91,8 +90,13 @@
             Bundle 'kana/vim-textobj-user'
             Bundle 'kana/vim-textobj-indent'
             Bundle 'gcmt/wildfire.vim'
-            Bundle 'jlanzarotta/bufexplorer'
-            Bundle 'winmanager'
+            " 7.4及以上版本这个插件才可以正常使用
+            if v:version >= 704
+                Bundle 'jlanzarotta/bufexplorer'
+            else
+                Bundle 'vim-scripts/minibufexplorerpp'
+            endif
+            " Bundle 'winmanager'
         endif
         " }
 
@@ -109,12 +113,9 @@
         if count(g:zjz_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
-            Bundle 'tpope/vim-fugitive'
-            Bundle 'mattn/webapi-vim'
-            Bundle 'mattn/gist-vim'
-            Bundle 'scrooloose/nerdcommenter'
-            Bundle 'tpope/vim-commentary'
+            " 对齐工具
             Bundle 'godlygeek/tabular'
+            " 括号颜色
             Bundle 'luochen1990/rainbow'
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
@@ -188,21 +189,6 @@
         endif
     " }
 
-    " Haskell {
-        " if count(g:zjz_bundle_groups, 'haskell')
-        "     Bundle 'travitch/hasksyn'
-        "     Bundle 'dag/vim2hs'
-        "     Bundle 'Twinside/vim-haskellConceal'
-        "     Bundle 'Twinside/vim-haskellFold'
-        "     Bundle 'lukerandall/haskellmode-vim'
-        "     Bundle 'eagletmt/neco-ghc'
-        "     Bundle 'eagletmt/ghcmod-vim'
-        "     Bundle 'Shougo/vimproc.vim'
-        "     Bundle 'adinapoli/cumino'
-        "     Bundle 'bitc/vim-hdevtools'
-        " endif
-    " }
-
     " HTML {
         if count(g:zjz_bundle_groups, 'html')
             Bundle 'amirh/HTML-AutoCloseTag'
@@ -213,34 +199,11 @@
         endif
     " }
 
-    " Ruby {
-        " if count(g:zjz_bundle_groups, 'ruby')
-        "     Bundle 'tpope/vim-rails'
-        "     let g:rubycomplete_buffer_loading = 1
-        "     "let g:rubycomplete_classes_in_global = 1
-        "     "let g:rubycomplete_rails = 1
-        " endif
-    " }
-
-    " Puppet {
-        " if count(g:zjz_bundle_groups, 'puppet')
-        "     Bundle 'rodjek/vim-puppet'
-        " endif
-    " }
-
     " Go Lang {
-        " if count(g:zjz_bundle_groups, 'go')
-        "     "Bundle 'Blackrush/vim-gocode'
-        "     Bundle 'fatih/vim-go'
-        " endif
-    " }
-
-    " Elixir {
-        " if count(g:zjz_bundle_groups, 'elixir')
-        "     Bundle 'elixir-lang/vim-elixir'
-        "     Bundle 'carlosgaldino/elixir-snippets'
-        "     Bundle 'mattreduce/vim-mix'
-        " endif
+        if count(g:zjz_bundle_groups, 'go')
+            "Bundle 'Blackrush/vim-gocode'
+            Bundle 'fatih/vim-go'
+        endif
     " }
 
     " Misc {
@@ -256,18 +219,5 @@
 
         " endif
     " }
-
     endif
 "}
-
-" Use fork bundles config if available {
-if filereadable(expand("~/.vimrc.bundle.fork"))
-    source ~/.vimrc.bundles.fork
-endif
-" }
-
-" Use local bundles config if avalilable {
-if filereadable(expand("~/.vimrc.bundle.local"))
-    source ~/.vimrc.bundle.local
-endif
-" }
