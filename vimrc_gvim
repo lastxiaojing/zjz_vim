@@ -77,7 +77,7 @@
         set mouse=a
     endif
     set mousehide
-    set mouse=a     " 设置鼠标可用
+    set mouse=c     " 设置鼠标可用
     scriptencoding utf-8
 
     " 不要提示音 和 闪烁
@@ -360,7 +360,7 @@
             let NERDTreeMinimalUI=1
             " vim 开启时 自动打开nerdtree
             " 并且鼠标停留在文件编辑区
-            if !WINDOWS()
+            if has('gui_running')
                 autocmd VimEnter * NERDTree
                 wincmd w
                 autocmd VimEnter * wincmd w
@@ -450,7 +450,9 @@
     "}
 
     " TagBar || Taglist{
-        let g:Use_Taglist = 0
+        " TagBar有一些bug，在开启TagBar时，使用BufExplorer会出现错误
+        " Tlist 窗口切换时，更新有些缓慢
+        let g:Use_Taglist = 1
 
         let g:Tlist_path = "~/.vim/bundle/taglist.vim/"
         let g:Tagbar_path = "~/.vim/bundle/tagbar/"
@@ -984,16 +986,3 @@
     endfunction
 
 " }
-
-" Use fork vimrc if available {
-    if filereadable(expand("~/.vimrc.fork"))
-        source ~/.vimrc.fork
-    endif
-" }
-
-" Use local vimrc if available {
-    if filereadable(expand("~/.vimrc.local"))
-        source ~/.vimrc.local
-    endif
-" }
-"
