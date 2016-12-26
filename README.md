@@ -23,12 +23,10 @@ vimrc_cygwin vimrc.bundles_cgywin 适用于windows下cygwin模式下的vim
 
 ###Gvim用户
 *现在用Gvim的很少了。*
-**
-1. 下载7.4及以上版本的Gvim。  
+>**1. 下载7.4及以上版本的Gvim。  
 2. 在Gvim的安装目录可以找到一个\_Vimrc的配置文件，那个目录就是$VIM目录。  
 3. 在$VIM目录下建立.vim/bundle目录。不会的可以借助其他工具，比如dos。  
 4. 从github上拷贝vundle插件放倒.vim/bundle下，和上边文件名保持一致。  
 5. 拷贝该配置文件，复制里边的vimrc_gvim到$VIM目录，重命名.vimrc；复制里边的vimrc_.bundles_gvim到$VIM，重命名.vimrc.bundles。  
 6. 打开gvim会有很多错误，忽略，执行:BundleInstall。
-7. 安装完成退出重新进入。  
-**
+7. 安装完成退出重新进入。  **
