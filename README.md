@@ -30,4 +30,4 @@ vimrc_cygwin vimrc.bundles_cgywin 适用于windows下cygwin模式下的vim
 4. 从github上拷贝vundle插件放倒.vim/bundle下，和上边文件名保持一致。  
 5. 拷贝该配置文件，复制里边的vimrc_gvim到$VIM目录，重命名.vimrc；复制里边的vimrc_.bundles_gvim到$VIM，重命名.vimrc.bundles。  
 6. 打开gvim会有很多错误，忽略，执行:BundleInstall。
-7. 安装完成退出重新进入。  **
+7. 安装完成退出重新进入。**  
