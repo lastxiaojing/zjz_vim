@@ -29,7 +29,7 @@
         set fileencoding=utf-8
         set fileencodings=ucs-bom,utf-8,chinese,cp930
         " vim 提示信息乱码
-        if has('gui_running')
+        if has('gui_running') && WINDOWS()
             language message ZH_CH.UTF-8
             set encoding=chinese
             source $VIMRUNTIME/delmenu.vim
@@ -75,9 +75,10 @@
     " gui模式下使用鼠标,非gui不使用鼠标方便复制
     if has('gui_running')
         set mouse=a
+    else
+        set mouse=c     " 设置鼠标可用
     endif
     set mousehide
-    set mouse=c     " 设置鼠标可用
     scriptencoding utf-8
 
     " 不要提示音 和 闪烁
@@ -166,19 +167,19 @@
     highlight LeaderTab guifg=#666666
     " 匹配行首tab
     match LeaderTab /^\t/
-
-    " 如果是gui方式 设置字体和工具栏菜单栏
+    
+    " GUI方式设置菜单,字体,透明度
     if has("gui_running")
-        set guifont=Courier_new:h14
         " gui模式开启最大化
-        au GUIEnter * simalt ~x
-        if !WINDOWS()
-            set transparency=30 " 透明度设置
-        endif
+
         if (OSX() || LINUX())
+            set guifont=Courier_new:h18
             set guioptions+=T
             set guioptions+=m
+            set transparency=10 " 透明度设置
         else
+            set guifont=Courier_new:h14
+            au GUIEnter * simalt ~x
             set go-=menu
             set go+=Tools
         endif
@@ -360,11 +361,11 @@
             let NERDTreeMinimalUI=1
             " vim 开启时 自动打开nerdtree
             " 并且鼠标停留在文件编辑区
-            if has('gui_running')
+            " if has('gui_running')
                 autocmd VimEnter * NERDTree
                 wincmd w
                 autocmd VimEnter * wincmd w
-            endif
+            " endif
 
             map <Leader>e <plug>NERDTreeTabsToggle<CR>
         endif
@@ -463,7 +464,7 @@
                     let g:Tlist_Exit_OnlyWindow=1 " 如果最后只有Taglist窗口,则退出
                     let g:Tlist_WinWidt=20
                     let g:Tlist_Use_Right_Window=1
-                    let g:Tlist_Auto_Open=1   " 自动打开
+                    " let g:Tlist_Auto_Open=1   " 自动打开
                     let g:Tlist_Process_File_Always=1 " 始终解析文件
                 else
                     let Tlist_Show_One_File=1 " 只显示当前文件的tag
