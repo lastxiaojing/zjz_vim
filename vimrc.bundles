@@ -62,16 +62,15 @@
     " }
     " 补全配置 {
         Bundle 'Shougo/neocomplcache'
-        " Bundle 'neosnippet'
-        " Bundle 'Shougo/neosnippet-snippets'
-        " Bundle 'honza/vim-snippets'
-        "
-        " Bundle 'garbas/vim-snipmate'
-        " if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
-        "     source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
-        " endif
-        Bundle 'Valloric/YouCompleteMe'
+        Bundle 'neosnippet'
+        Bundle 'Shougo/neosnippet-snippets'
+        Bundle 'honza/vim-snippets'
+        Bundle 'garbas/vim-snipmate'
+        if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
+            source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
+        endif
         Bundle 'SirVer/ultisnips'
         Bundle 'AutoComplPop'
     " }
 " }
+

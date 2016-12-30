@@ -345,33 +345,6 @@
             set completeopt=menu,preview,longest
         " }
     
-        " YCM 补全 {
-            let g:acp_enableAtStartup = 0
-    
-            " enable completion from tags
-            let g:ycm_collect_identifiers_from_tags_files = 1
-    
-            " remap Ultisnips for compatibility for YCM
-            let g:UltiSnipsExpandTrigger = '<C-j>'
-            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-    
-            " Enable omni completion.
-            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-    
-            if has('conceal')
-                set conceallevel=2 concealcursor=i
-            endif
-    
-            set completeopt-=preview
-        " }
-    
         " neocomplcache {
             let g:acp_enableAtStartup = 0
             let g:neocomplcache_enable_at_startup = 1
@@ -429,7 +402,7 @@
                 " <s-CR>: close popup and save indent.
                 inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup()."\<CR>" : "\<CR>"
                 "inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-    
+                
                 " <C-h>, <BS>: close popup and delete backword char.
                 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
                 inoremap <expr><C-y> neocomplcache#close_popup()
@@ -437,6 +410,7 @@
                 " <TAB>: completion.
                 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
                 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+                
             " }
     
             " Enable omni completion.
