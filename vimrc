@@ -154,15 +154,13 @@
     " 如果是gui方式 设置字体和工具栏菜单栏
     if has("gui_running")
         set guifont=Courier_new:h14
-        " gui模式开启最大化
-        au GUIEnter * simalt ~x
-        if !WINDOWS()
-            set transparency=30 " 透明度设置
-        endif
         if (OSX() || LINUX())
+            set transparency=5 " 透明度设置
             set guioptions+=T
             set guioptions+=m
         else
+            " gui模式开启最大化
+            au GUIEnter * simalt ~x
             set go-=menu
             set go+=Tools
         endif
