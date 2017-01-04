@@ -69,7 +69,7 @@
         if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
             source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
         endif
-        Bundle 'SirVer/ultisnips'
+"        Bundle 'SirVer/ultisnips'
         Bundle 'AutoComplPop'
     " }
 " }
